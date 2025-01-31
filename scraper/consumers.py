@@ -14,7 +14,7 @@ class MarketDataConsumer(AsyncWebsocketConsumer):
     
     
     async def connect(self):
-        Authorization = "d31b5ec65f527c8bd3c0eaf4878e6c2c5f441def"
+        Authorization = "************************"
         self.user = await self.authenticate_user(Authorization)
         if self.user is None:
             await self.close(code=4003)  # Unauthorized
@@ -84,7 +84,7 @@ class MarketDataConsumer(AsyncWebsocketConsumer):
         await asyncio.sleep(1)
     
         self.driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
-        self.driver.get("https://cointelegraph.com/tags/markets")
+        self.driver.get("*****************")
         print("Opened main page. Waiting for elements...")
         await self.send(text_data=json.dumps({"message": "Opened main page. Waiting for elements..."}))
     
